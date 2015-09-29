@@ -21,16 +21,10 @@ describe('thermostat', function() {
   it('has a minimum temeperature of 10 degrees', function() {
     thermostat.tempDecrease(100);
     expect(thermostat.temperature).toEqual(10);
-    // expect(thermostat.tempDecrease(100)).toThrow(new Error("The minimum temperature is 10"))
   });
 
   it('has power saving mode on by default', function() {
     expect(thermostat.powerSave).toBe(true);
-  });
-
-  it('has max temp 25 degrees if power saving mode is on', function() {
-    thermostat.tempIncrease(100);
-    expect(thermostat.temperature).toEqual(25);
   });
 
   it('power saving mode can be turned off', function() {
@@ -43,13 +37,18 @@ describe('thermostat', function() {
     expect(thermostat.powerSave).toBe(true);
   });
 
+  it('has max temp 25 degrees if power saving mode is on', function() {
+    thermostat.tempIncrease(100);
+    expect(thermostat.temperature).toEqual(25);
+  });
+
   it('has max temperature of 32 degrees if power saving is off', function() {
     thermostat.powerSaveOff();
     thermostat.tempIncrease(1000);
     expect(thermostat.temperature).toEqual(32)
   });
 
-  it('can be reset to 20 degrees by hitting the reset button hard', function() {
+  it('can be reset to 20 degrees by hitting the reset button', function() {
     thermostat.tempIncrease(5);
     thermostat.resetButton();
     expect(thermostat.temperature).toEqual(20)
@@ -57,13 +56,11 @@ describe('thermostat', function() {
 
   it('colour displays green when temp is lower than 18', function() {
     thermostat.tempDecrease(10);
-    thermostat.changeColour();
     expect(thermostat.displayColour).toEqual('green')
   });
 
   it('colour displays red when temp is higher than 24', function() {
     thermostat.tempIncrease(10);
-    thermostat.changeColour();
     expect(thermostat.displayColour).toEqual('red')
   });
 
