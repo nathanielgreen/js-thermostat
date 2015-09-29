@@ -41,21 +41,36 @@ describe('thermostat', function() {
   it('power saving mode can be turned on', function() {
     thermostat.powerSaveOn();
     expect(thermostat.powerSave).toBe(true);
-  })
-
+  });
 
   it('has max temperature of 32 degrees if power saving is off', function() {
     thermostat.powerSaveOff();
     thermostat.tempIncrease(1000);
     expect(thermostat.temperature).toEqual(32)
-  })
+  });
 
   it('can be reset to 20 degrees by hitting the reset button hard', function() {
     thermostat.tempIncrease(5);
     thermostat.resetButton();
     expect(thermostat.temperature).toEqual(20)
-  })
+  });
 
-  
+  it('colour displays green when temp is lower than 18', function() {
+    thermostat.tempDecrease(10);
+    thermostat.changeColour();
+    expect(thermostat.displayColour).toEqual('green')
+  });
+
+  it('colour displays red when temp is higher than 24', function() {
+    thermostat.tempIncrease(10);
+    thermostat.changeColour();
+    expect(thermostat.displayColour).toEqual('red')
+  });
+
+  it('colour displays yellow when temp is between 17 and 25', function() {
+    thermostat.tempDecrease(1);
+    thermostat.tempIncrease(3);
+    expect(thermostat.displayColour).toEqual('yellow')
+  });
 
 });

@@ -1,6 +1,8 @@
 function Thermostat() {
   this.temperature = 20
   this.powerSave = true
+  this.displayColour = 'yellow'
+
 };
 
 Thermostat.prototype.tempIncrease = function(num) {
@@ -33,4 +35,14 @@ Thermostat.prototype.powerSaveOn = function() {
 
 Thermostat.prototype.resetButton = function() {
   this.temperature = 20
+};
+
+Thermostat.prototype.changeColour = function() {
+  if (this.temperature < 18) {
+      this.displayColour = 'green'
+  } else if (this.temperature >= 25) {
+             this.displayColour = 'red';
+  } else {
+    this.displayColour = 'yellow';
+  }
 };
