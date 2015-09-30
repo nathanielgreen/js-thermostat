@@ -1,25 +1,30 @@
-document.getElementById("temp").innerHTML = thermostat.temperature;
+var showTempVar = function() {
+  document.getElementById("temp").innerHTML = thermostat.temperature;
+}
 
+showTempVar();
 
+$('#tempUp').click(function() {
+  thermostat.tempIncrease(1);
+  showTempVar();
+})
 document.getElementById("tempUp").addEventListener("click", function(){
   thermostat.tempIncrease(1);
-  document.getElementById("temp").innerHTML = thermostat.temperature;
+  showTempVar();
 });
-
-
 
 document.getElementById("tempDown").addEventListener("click", function(){
   thermostat.tempDecrease(1);
-  document.getElementById("temp").innerHTML = thermostat.temperature;
+  showTempVar();
 });
 
 
 document.getElementById("resetTemp").addEventListener("click", function(){
   thermostat.resetButton();
-  document.getElementById("temp").innerHTML = thermostat.temperature;
+  showTempVar();
 });
 
 document.getElementById("powerSave").addEventListener("change" , function(){
   thermostat.powerSaveToggle();
-  document.getElementById("temp").innerHTML = thermostat.temperature;
+  showTempVar();
 });
