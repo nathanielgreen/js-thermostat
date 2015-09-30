@@ -1,6 +1,7 @@
 console.log("app is working")
 
 var thermostat = new Thermostat();
+var weather = new Weather();
 
 
 var showTempVar = function() {
@@ -46,4 +47,15 @@ $('#powerSave').change(function() {
   thermostat.powerSaveToggle();
   showTempVar();
   changeColourVar();
+});
+
+Weather.getCurrent("Kansas City", function(current) {
+  console.log(
+    ["currently:",current.temperature(),"and",current.conditions()].join(" ")
+  );
+});
+
+Weather.getForecast("Kansas City", function(forecast) {
+  console.log("forecast high: " + forecast.high());
+  console.log("forecast low: " + forecast.low());
 });
