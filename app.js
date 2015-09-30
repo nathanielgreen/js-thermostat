@@ -49,13 +49,13 @@ $('#powerSave').change(function() {
   changeColourVar();
 });
 
-Weather.getCurrent("Kansas City", function(current) {
-  console.log(
-    ["currently:",current.temperature(),"and",current.conditions()].join(" ")
+Weather.getCurrent("London", function(current) {
+  $('#londonTemp').text(
+    ["Temperature currently in London:",current.temperature()- 273.15,"and",current.conditions()].join(" ")
   );
 });
 
-Weather.getForecast("Kansas City", function(forecast) {
+Weather.getForecast("London", function(forecast) {
   console.log("forecast high: " + forecast.high());
   console.log("forecast low: " + forecast.low());
 });
