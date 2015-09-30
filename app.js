@@ -9,6 +9,9 @@ var showTempVar = function() {
 
 var changeColourVar = function() {
   $("#tempNotice").text(thermostat.displayColour);
+  if (thermostat.displayColour == 'Low Temp') {
+    $('#tempNotice').addClass('Green');
+  }
 }
 
 showTempVar();
