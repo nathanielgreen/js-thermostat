@@ -1,7 +1,7 @@
 console.log("app is working")
 
 var thermostat = new Thermostat();
-var weather = new Weather();
+
 
 
 var showTempVar = function() {
