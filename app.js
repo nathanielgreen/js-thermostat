@@ -10,7 +10,14 @@ var showTempVar = function() {
 var changeColourVar = function() {
   $("#tempNotice").text(thermostat.displayColour);
   if (thermostat.displayColour == 'Low Temp') {
+    $('#tempNotice').removeClass('Yellow Red');
     $('#tempNotice').addClass('Green');
+  } else if (thermostat.displayColour == 'Mid Temp') {
+    $('#tempNotice').removeClass('Green Red');
+    $('#tempNotice').addClass('Yellow')
+  } else if (thermostat.displayColour == 'High Temp') {
+    $('#tempNotice').removeClass('Green Yellow');
+    $('#tempNotice').addClass('Red')
   }
 }
 
