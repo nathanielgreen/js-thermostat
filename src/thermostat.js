@@ -5,7 +5,6 @@ function Thermostat() {
 
 };
 
-var thermostat = new Thermostat();
 
 Thermostat.prototype.tempIncrease = function(num) {
   this.temperature += num;

@@ -1,3 +1,8 @@
+console.log("You are working")
+
+var thermostat = new Thermostat();
+
+
 var showTempVar = function() {
   document.getElementById("temp").innerHTML = thermostat.temperature;
 }
@@ -7,24 +12,19 @@ showTempVar();
 $('#tempUp').click(function() {
   thermostat.tempIncrease(1);
   showTempVar();
-})
-document.getElementById("tempUp").addEventListener("click", function(){
-  thermostat.tempIncrease(1);
-  showTempVar();
 });
 
-document.getElementById("tempDown").addEventListener("click", function(){
+$('#tempDown').click(function() {
   thermostat.tempDecrease(1);
   showTempVar();
 });
 
-
-document.getElementById("resetTemp").addEventListener("click", function(){
+$('#resetTemp').click(function() {
   thermostat.resetButton();
   showTempVar();
 });
 
-document.getElementById("powerSave").addEventListener("change" , function(){
+$('#powerSave').change(function() {
   thermostat.powerSaveToggle();
   showTempVar();
 });
