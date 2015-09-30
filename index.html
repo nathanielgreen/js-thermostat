@@ -6,20 +6,35 @@
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 </head>
 
-<body>
+<body style="text-align: center">
 
-  <button id="tempUp" type="button">+</button>
+  <button id="tempUp" type="button">
+    +
+  </button>
 
-  <button id="tempDown" type="button">-</button>
+  <button id="tempDown" type="button">
+    -
+  </button>
 
-  <button id="resetTemp" type="button">Reset</button>
+  <button id="resetTemp" type="button" width="40px" height="40px">
+    Reset
+  </button>
 
+  <div style="padding: 10px">
+    <form action="">
+      <input id="powerSave" type="checkbox" name="powerSave" checked>Power Saving Mode
+    </form>
+  </div>
 
-  <form action="">
-    <input id="powerSave" type="checkbox" name="powerSave" checked>Power Saving Mode
-  </form>
+  <div style="padding: 10px">
+    Temperature:
+    <p id="temp"></p>
+  </div>
 
-  <p id="temp"></p>
+  <div id="tempNotice">
+
+  </div>
+
 
   <script src="src/thermostat.js"></script>
   <script src="app.js"></script>

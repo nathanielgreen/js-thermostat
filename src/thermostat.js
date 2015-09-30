@@ -1,17 +1,16 @@
+console.log("thermostat.js is working")
+
 function Thermostat() {
   this.temperature = 20
   this.powerSave = true
-  this.displayColour = 'yellow'
-
+  this.displayColour = 'Mid Temp'
 };
-
 
 Thermostat.prototype.tempIncrease = function(num) {
   this.temperature += num;
   if (this.powerSave == false) {
     if (this.temperature > 32) {
         this.temperature = 32;
-
     }
   } else if (this.powerSave == true) {
     if (this.temperature > 25) {
@@ -36,21 +35,22 @@ Thermostat.prototype.powerSaveToggle = function() {
     this.powerSave = true;
     if (this.temperature > 25) {
         this.temperature = 25;
+        this.displayColour = 'Mid Temp';
       }
   }
 };
 
-
 Thermostat.prototype.resetButton = function() {
   this.temperature = 20
+  this.displayColour = 'Mid Temp'
 };
 
 Thermostat.prototype.changeColour = function() {
   if (this.temperature < 18) {
-      this.displayColour = 'green'
-  } else if (this.temperature >= 25) {
-             this.displayColour = 'red';
+      this.displayColour = 'Low Temp'
+  } else if (this.temperature > 25) {
+             this.displayColour = 'High Temp';
   } else {
-    this.displayColour = 'yellow';
+    this.displayColour = 'Mid Temp';
   }
 };
