@@ -9,3 +9,11 @@ document.getElementById("tempDown").addEventListener("click", function(){
 document.getElementById("showTemp").addEventListener("click", function(){
   console.log(thermostat.temperature);
 });
+
+document.getElementById("resetTemp").addEventListener("click", function(){
+  thermostat.resetButton();
+});
+
+document.getElementById("powerSave").addEventListener("change", function(){
+  thermostat.powerSaveOff();
+});

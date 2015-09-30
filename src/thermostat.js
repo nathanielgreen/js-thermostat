@@ -30,13 +30,14 @@ Thermostat.prototype.tempDecrease = function(num) {
   this.changeColour();
 };
 
-Thermostat.prototype.powerSaveOff = function() {
-  this.powerSave = false;
+Thermostat.prototype.powerSaveToggle = function() {
+  if (this.powerSave == true) {
+    this.powerSave = false;
+  } else {
+    this.powerSave = true;
+  }
 };
 
-Thermostat.prototype.powerSaveOn = function() {
-  this.powerSave = true;
-};
 
 Thermostat.prototype.resetButton = function() {
   this.temperature = 20
