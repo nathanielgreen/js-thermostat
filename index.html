@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="background-color: #2c2c2c">
 <head>
   <meta charset="utf-8">
   <title>Thermostat</title>
@@ -33,24 +33,32 @@
   </style>
 </head>
 
-<body style="text-align: center">
+<body style="text-align: center; font-family: Roboto; color: white">
 
   <div>
     Temperature:
     <p id="temp"></p>
   </div>
 
-  <a href='#' id="tempUp"><img height="40px" width="40px" src="public/images/uparrow.jpg"></a>
+  <div>
+    <a href='#' id="tempUp">
+      <img height="40px" width="40px" src="public/images/uparrownoback.png">
+    </a>
+    <a href='#' id="tempDown">
+      <img height="40px" width="40px" src="public/images/downarrownoback.png">
+    </a>
+  </div>
 
-  <a href='#' id="tempDown"><img height="40px" width="40px" src="public/images/downarrow.jpg"></a>
+  <div>
+    <a href='#' id="resetTemp">
+      <img height="60px" width="60px" src="public/images/resetbutton.png">
+    </a>
+  </div>
 
-  <button id="resetTemp" type="button" width="40px" height="40px">
-    Reset
-  </button>
-
-  <div style="padding: 10px">
+  <div style="margin-bottom: 40px">
     <form action="">
-      <input id="powerSave" type="checkbox" name="powerSave" checked>Power Saving Mode
+      <input id="powerSave" type="checkbox" name="powerSave" checked>
+      Power Saving Mode
     </form>
   </div>
 
@@ -63,9 +71,10 @@
 
   </div>
 
-  <form id="submitForm" action="">
+  <form>
     Choose your City: <input type="text" name="userInput">
     <input type="submit" value="Submit">
+    <p>And adjust thermostat accordingly.</p>
   </form>
 
 
