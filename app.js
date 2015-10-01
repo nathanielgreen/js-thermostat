@@ -18,6 +18,7 @@ var showTempVar = function() {
   }
 }
 
+showTempVar();
 // var changeColourVar = function() {
 //   $("#temp").text(thermostat.temperature);
 //   if (thermostat.displayColour == 'Low Temp') {
@@ -32,7 +33,6 @@ var showTempVar = function() {
 //   }
 // }
 
-showTempVar();
 
 
 $('#tempUp').click(function() {
@@ -55,15 +55,24 @@ $('#powerSave').change(function() {
   showTempVar();
 });
 
+var chosenCity = window.location.search.substring(11)
+
+var connectedLink = "http://api.openweathermap.org/data/2.5/weather?q=" + chosenCity;
+console.log(window.location)
+console.log(window.location.search)
+console.log(window.location.search.substring(2))
+
+console.log(window.location.search.substring(11))
+console.log(connectedLink)
+
 var myjson;
-$.getJSON("http://api.openweathermap.org/data/2.5/weather?q=London,uk", function(json){
+$.getJSON(connectedLink, function(json){
     myjson = json;
 
-function showWeather(){
-    document.getElementById("showWeather").innerHTML = "The temperature in London is: " + JSON.stringify(myjson.main.temp - 273.15) + "ºC";
-};
+  function showWeather(){
+      document.getElementById("showWeather").innerHTML = "The temperature in " + chosenCity + " is: " + JSON.stringify(Math.round(myjson.main.temp) - 273) + "ºC";
+  };
 
-showWeather();
-
+  showWeather();
 
 });
