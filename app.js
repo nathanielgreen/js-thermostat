@@ -6,56 +6,64 @@ var thermostat = new Thermostat();
 
 var showTempVar = function() {
   $("#temp").text(thermostat.temperature + "ºC");
-}
-
-var changeColourVar = function() {
-  $("#tempNotice").text(thermostat.displayColour);
   if (thermostat.displayColour == 'Low Temp') {
-    $('#tempNotice').removeClass('Yellow Red');
-    $('#tempNotice').addClass('Green');
+    $('#temp').removeClass('Yellow Red');
+    $('#temp').addClass('Green');
   } else if (thermostat.displayColour == 'Mid Temp') {
-    $('#tempNotice').removeClass('Green Red');
-    $('#tempNotice').addClass('Yellow')
+    $('#temp').removeClass('Green Red');
+    $('#temp').addClass('Yellow')
   } else if (thermostat.displayColour == 'High Temp') {
-    $('#tempNotice').removeClass('Green Yellow');
-    $('#tempNotice').addClass('Red')
+    $('#temp').removeClass('Green Yellow');
+    $('#temp').addClass('Red')
   }
 }
 
+// var changeColourVar = function() {
+//   $("#temp").text(thermostat.temperature);
+//   if (thermostat.displayColour == 'Low Temp') {
+//     $('#temp').removeClass('Yellow Red');
+//     $('#temp').addClass('Green');
+//   } else if (thermostat.displayColour == 'Mid Temp') {
+//     $('#temp').removeClass('Green Red');
+//     $('#temp').addClass('Yellow')
+//   } else if (thermostat.displayColour == 'High Temp') {
+//     $('#temp').removeClass('Green Yellow');
+//     $('#temp').addClass('Red')
+//   }
+// }
+
 showTempVar();
-changeColourVar();
+
 
 $('#tempUp').click(function() {
   thermostat.tempIncrease(1);
   showTempVar();
-  changeColourVar();
 });
 
 $('#tempDown').click(function() {
   thermostat.tempDecrease(1);
   showTempVar();
-  changeColourVar();
 });
 
 $('#resetTemp').click(function() {
   thermostat.resetButton();
   showTempVar();
-  changeColourVar();
 });
 
 $('#powerSave').change(function() {
   thermostat.powerSaveToggle();
   showTempVar();
-  changeColourVar();
 });
 
-Weather.getCurrent("London", function(current) {
-  $('#londonTemp').text(
-    ["Temperature currently in London:",current.temperature()- 273.15,"and",current.conditions()].join(" ")
-  );
-});
+var myjson;
+$.getJSON("http://api.openweathermap.org/data/2.5/weather?q=London,uk", function(json){
+    myjson = json;
 
-Weather.getForecast("London", function(forecast) {
-  console.log("forecast high: " + forecast.high());
-  console.log("forecast low: " + forecast.low());
+function showWeather(){
+    document.getElementById("showWeather").innerHTML = "The temperature in London is: " + JSON.stringify(myjson.main.temp - 273.15) + "ºC";
+};
+
+showWeather();
+
+
 });

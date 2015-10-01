@@ -48,7 +48,7 @@ Thermostat.prototype.resetButton = function() {
 Thermostat.prototype.changeColour = function() {
   if (this.temperature < 18) {
       this.displayColour = 'Low Temp'
-  } else if (this.temperature > 25) {
+  } else if (this.temperature > 24) {
              this.displayColour = 'High Temp';
   } else {
     this.displayColour = 'Mid Temp';

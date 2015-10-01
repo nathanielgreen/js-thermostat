@@ -7,6 +7,7 @@
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
   <style>
     .Green {
+      border-radius: 80px;
       background-color: green;
       width: 40px;
       height: 40px;
@@ -14,6 +15,7 @@
       padding: 40px;
     }
     .Yellow {
+      border-radius: 80px;
       background-color: yellow;
       width: 40px;
       height: 40px;
@@ -21,24 +23,26 @@
       padding: 40px;
     }
     .Red {
+      border-radius: 80px;
       background-color: red;
       width: 40px;
       height: 40px;
       margin: auto;
-      padding: 40px
+      padding: 40px;
     }
   </style>
 </head>
 
 <body style="text-align: center">
 
-  <button id="tempUp" type="button">
-    +
-  </button>
+  <div>
+    Temperature:
+    <p id="temp"></p>
+  </div>
 
-  <button id="tempDown" type="button">
-    -
-  </button>
+  <a href='#' id="tempUp"><img height="40px" width="40px" src="public/images/uparrow.jpg"></a>
+
+  <a href='#' id="tempDown"><img height="40px" width="40px" src="public/images/downarrow.jpg"></a>
 
   <button id="resetTemp" type="button" width="40px" height="40px">
     Reset
@@ -50,16 +54,16 @@
     </form>
   </div>
 
-  <div style="padding: 10px">
-    Temperature:
-    <p id="temp"></p>
-  </div>
 
   <div id="tempNotice">
 
   </div>
 
   <div id="londonTemp" style="padding: 20px">
+
+  </div>
+
+  <div id="showWeather">
 
   </div>
 
