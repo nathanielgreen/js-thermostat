@@ -35,7 +35,6 @@ Thermostat.prototype.powerSaveToggle = function() {
     this.powerSave = true;
     if (this.temperature > 25) {
         this.temperature = 25;
-        this.displayColour = 'Mid Temp';
       }
   }
 };
